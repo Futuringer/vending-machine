@@ -1,0 +1,14 @@
+.screen {
+  border-radius: 4rem;
+  padding: 4rem;
+  background-color: #4d584a;
+  border: 1rem solid #464646;
+
+}
+
+.productList {
+  padding: 0;
+  display: grid;
+  gap: 6rem;
+  grid-template-columns: repeat(3,1fr);
+}

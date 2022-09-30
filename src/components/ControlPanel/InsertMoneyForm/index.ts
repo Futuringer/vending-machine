@@ -1,0 +1,1 @@
+export { InsertMoneyForm } from './InsertMoneyForm';

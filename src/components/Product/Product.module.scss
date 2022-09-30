@@ -1,0 +1,36 @@
+.product {
+  padding: 4rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 2rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 5rem;
+}
+
+.description {
+  margin: 0;
+  font-size: 4rem;
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 4rem;
+}
+
+.position {
+  font-size: 6rem;
+}
+
+.isAvailable {
+  background-color: aqua;
+}
