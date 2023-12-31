@@ -1,8 +1,10 @@
 {
+  "homepage": "https://Futuringer.github.io/vending-machine",
   "name": "vending",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,29 +12,30 @@
     "@types/node": "^16.11.62",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "classnames": "^2.3.1",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.8.3",
-    "web-vitals": "^2.1.4",
-    "@reduxjs/toolkit": "^1.7.1",
     "react-redux": "^7.2.6",
+    "react-scripts": "5.0.1",
     "sass": "^1.47.0",
-    "classnames": "^2.3.1"
+    "typescript": "^4.8.3",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "prettier": "^2.5.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "prettier": "^2.5.1",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.1.11",
-    "react-app-rewired-eslint": "^0.2.4"
+    "react-app-rewired-eslint": "^0.2.4",
+    "tsconfig-paths-webpack-plugin": "^3.5.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --watchAll",
