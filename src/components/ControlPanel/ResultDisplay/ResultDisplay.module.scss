@@ -18,6 +18,9 @@
 }
 
 .display {
+  padding: 0;
+  margin: 0;
+  height: 100%;
   width: 100%;
   padding: 3rem;
   display: flex;
@@ -25,19 +28,20 @@
   gap: 2rem;
   background-color: #1a1919;
   border-radius: 2rem;
-  min-height: 30rem;
+  height: 30rem;
+  overflow-y: auto;
 }
 
 .product {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   background-color:aqua;
   width: 100%;
   height: 100%;
   border-radius: 2rem;
-  padding: 3rem;
+  padding: 1rem;
   animation: pulse 1s infinite;
 }
 
@@ -46,14 +50,16 @@
 }
 
 .title {
-  font-size: 5rem;
-  font-weight: 600;
+  font-size: 4rem;
+  font-weight: 400;
 }
 
-.description {
-  font-size: 3rem;
+.itemsList {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-auto-rows: 11rem;
 }
 
-.price {
-  font-size: 5rem;
+.item {
+  list-style: none;
 }

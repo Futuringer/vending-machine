@@ -13,11 +13,11 @@ const changeBanknotes = [10, 5, 2, 1];
 
 type Props = {
   moneyLeft: number;
-  chosenProduct: ProductType | null;
+  chosenProducts: ProductType[];
   resetVending: () => void;
 };
 
-const ResultDisplay: React.FC<Props> = ({ moneyLeft, chosenProduct, resetVending }) => {
+const ResultDisplay: React.FC<Props> = ({ moneyLeft, chosenProducts, resetVending }) => {
   const changeArray = useMemo(() => {
     return formChange(moneyLeft, changeBanknotes);
   }, [moneyLeft]);
@@ -25,7 +25,7 @@ const ResultDisplay: React.FC<Props> = ({ moneyLeft, chosenProduct, resetVending
   return (
     <div className={cx('displaysContainer')}>
       <div className={cx('display')}>
-        {chosenProduct &&
+        {chosenProducts.length > 0 &&
           changeArray.map((item) => (
             <div
               className={cx('chargeItem')}
@@ -35,18 +35,22 @@ const ResultDisplay: React.FC<Props> = ({ moneyLeft, chosenProduct, resetVending
             </div>
           ))}
       </div>
-      <div className={cx('display')}>
-        {chosenProduct && (
-          <div
-            className={cx('product')}
-            onClick={resetVending}
-          >
-            <div className={cx('title')}>{chosenProduct?.title}</div>
-            <div className={cx('description')}>{chosenProduct?.description}</div>
-            <div className={cx('price')}>{chosenProduct?.price}₽</div>
-          </div>
-        )}
-      </div>
+      <ul className={cx('display', 'itemsList')}>
+        {chosenProducts.length > 0 &&
+          chosenProducts.map((item) => (
+            <li
+              className={cx('item')}
+              key={item.title}
+            >
+              <button
+                className={cx('product')}
+                onClick={resetVending}
+              >
+                <div className={cx('title')}>{item?.title}</div>
+              </button>
+            </li>
+          ))}
+      </ul>
     </div>
   );
 };

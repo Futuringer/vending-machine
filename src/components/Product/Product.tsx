@@ -26,6 +26,7 @@ const Product: React.FC<Props> = ({ product, position, isAvailable }) => {
       className={cx('product', { isAvailable })}
       type="button"
       onClick={() => buyProduct(product)}
+      disabled={!isAvailable}
     >
       <h3 className={cx('title')}>{title}</h3>
       <p className={cx('description')}>{description}</p>

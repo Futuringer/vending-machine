@@ -7,6 +7,7 @@ import {
   getProductsList,
   getChosenProduct,
   chooseProduct,
+  getProductsBought,
   dropState,
 } from '@store/vending/paymentOperations';
 import { useAppDispatch, useAppSelector } from '@store/utils';
@@ -26,6 +27,7 @@ const ControlPanel: React.FC = () => {
   const moneyInTheVending = useAppSelector(getMoneyInTheVending);
   const allProducts = useAppSelector(getProductsList);
   const chosenProduct = useAppSelector(getChosenProduct);
+  const productsBought = useAppSelector(getProductsBought);
   const insertBanknote = (currentAmount: number) => dispatch(pushMoney(+currentAmount));
   const buyProduct = (product: ProductType) => dispatch(chooseProduct(product));
   const resetVending = () => dispatch(dropState());
@@ -46,7 +48,7 @@ const ControlPanel: React.FC = () => {
       <ResultDisplay
         resetVending={resetVending}
         moneyLeft={moneyInTheVending}
-        chosenProduct={chosenProduct}
+        chosenProducts={productsBought}
       />
     </div>
   );

@@ -7,11 +7,13 @@ type State = {
   money: number;
   productsList: ProductType[];
   chosenProduct: ProductType | null;
+  productsBought: ProductType[];
 };
 
 const initialState: State = {
   money: 0,
   chosenProduct: null,
+  productsBought: [],
   productsList: [
     {
       title: 'Lay’s',
@@ -62,6 +64,7 @@ const paymentOperationsSlice = createSlice({
       state.money += action.payload;
     },
     chooseProduct: (state, action: PayloadAction<ProductType>) => {
+      state.productsBought = [...state.productsBought, action.payload];
       state.chosenProduct = action.payload;
       state.money -= action.payload.price;
     },
@@ -73,9 +76,10 @@ const selectSelf = (state: RootState) => state.vending.paymentOperations;
 const getProductsList = createSelector(selectSelf, ({ productsList }) => productsList);
 const getMoneyInTheVending = createSelector(selectSelf, ({ money }) => money);
 const getChosenProduct = createSelector(selectSelf, ({ chosenProduct }) => chosenProduct);
+const getProductsBought = createSelector(selectSelf, ({ productsBought }) => productsBought);
 
 export const { dropState, pushMoney, chooseProduct } = paymentOperationsSlice.actions;
 
-export { getMoneyInTheVending, getProductsList, getChosenProduct };
+export { getMoneyInTheVending, getProductsList, getChosenProduct, getProductsBought };
 
 export default paymentOperationsSlice.reducer;
