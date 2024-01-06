@@ -19,12 +19,16 @@ const VendingScreen: React.FC = () => {
     <div className={cx('screen')}>
       <ul className={cx('productList')}>
         {productsList.map((product, i) => (
-          <Product
+          <li
+            className={cx('productItem')}
             key={`${product.title}${i}`}
-            product={product}
-            position={i + 1}
-            isAvailable={money >= product.price}
-          />
+          >
+            <Product
+              product={product}
+              position={i + 1}
+              isAvailable={money >= product.price}
+            />
+          </li>
         ))}
       </ul>
     </div>
